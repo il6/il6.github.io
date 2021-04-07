@@ -7,18 +7,45 @@
     <link rel="icon" type="image/png" href="6.png">
     <title>I Love 6</title>
     <style>
-        body{
+        *{
             margin: 0;
             padding: 0;
-            height: 100vh;
+            background-color: white;
+        }
+        .ragib{
+            min-height: 100vh;
             display: grid;
             place-items: center;
             font-size: 30px;
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
             letter-spacing: 10px;
+            background-image: linear-gradient(to bottom,rgba(210, 180, 140, 1), rgba(210, 180, 140, 0), rgba(210, 180, 140, 1));
+            cursor: wait;
+            color: black;
+            user-select: none;
         }
     </style>
 </head>
-<body>RAGIB</body>
+<body>
+
+    <div class="ragib" id="ragib">
+        RAGIB
+    </div>
+</body>
+
+
+    <script>
+        var i = false;
+        var goFS = document.getElementById("ragib");
+        goFS.addEventListener("click", function() {
+            if(i){
+                document.exitFullscreen()
+                i = !i;
+            } else{
+                document.body.requestFullscreen();
+                i = !i;
+            }
+        }, false);
+    </script>
 </html>
