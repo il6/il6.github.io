@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,74 @@
     <link rel="icon" type="image/png" href="6.png">
     <title>I Love 6</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             background-color: white;
         }
-        .ragib{
+        
+        .ragib {
             min-height: 100vh;
             display: grid;
             place-items: center;
             font-size: 30px;
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
-            letter-spacing: 10px;
-            background-image: linear-gradient(to bottom,rgba(210, 180, 140, 1), rgba(210, 180, 140, 0), rgba(210, 180, 140, 1));
+            letter-spacing: 5px;
+            background-image: linear-gradient(to bottom, rgba(210, 180, 140, 1), rgba(210, 180, 140, 0), rgba(210, 180, 140, 1));
             cursor: wait;
             color: black;
             user-select: none;
         }
     </style>
 </head>
+
 <body>
 
     <div class="ragib" id="ragib">
-        RAGIB
     </div>
+
 </body>
 
 
-    <script>
-        var i = false;
-        var goFS = document.getElementById("ragib");
-        goFS.addEventListener("click", function() {
-            if(i){
-                document.exitFullscreen()
-                i = !i;
-            } else{
-                document.body.requestFullscreen();
-                i = !i;
-            }
-        }, false);
-    </script>
+<script>
+    var i = false;
+    var goFS = document.getElementById("ragib");
+    goFS.addEventListener("click", function() {
+        if (i) {
+            document.exitFullscreen()
+            i = !i;
+        } else {
+            document.body.requestFullscreen();
+            i = !i;
+        }
+    }, false);
+
+    var start = new Date('04/20/2022');
+    var timer;
+
+    function age() {
+        var now = new Date();
+        var age = start.getTime() - now.getTime();
+        var sec = (age / 1000).toFixed(0)
+
+        total_seconds_of_a_year = 31557600
+        total_seconds_of_a_day = 86400
+        total_seconds_of_a_hour = 3600
+        var total_day = ~~(sec / total_seconds_of_a_day)
+        var month = ~~(total_day / 30)
+        var day = total_day % 30
+        if (month < 10) {
+            month = '0' + month
+        }
+        if (day < 10) {
+            day = '0' + day
+        }
+        var str = month + " Month " + day + " Days";
+        document.getElementById('ragib').innerHTML = str;
+    }
+
+    timer = setInterval(age, 1);
+</script>
+
 </html>
